@@ -43,7 +43,7 @@ export class UpdateUserComponent implements OnInit {
   }
 
   updateUser(){
-    if(this.hasError){
+    if(this.validateUserInfo()){
     this.userService.updateUser(this.emailId,this.firstName,this.lastName,this.zipCode,this.userId).subscribe({next:(data)=>{
       console.log('user',data)
       this.hasError = false;

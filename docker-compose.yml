@@ -36,7 +36,7 @@ services:
       dockerfile: frontend/docker/dockerfile
       target: development
     ports:
-      - "2002:2002"
+      - "2003:2002"
     volumes:
       - ./frontend/frontend/src:/home/WORKSHOP/WebApp-Workshop2/frontend/src
     command: npm run start
