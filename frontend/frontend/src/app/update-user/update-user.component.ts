@@ -30,34 +30,11 @@ export class UpdateUserComponent implements OnInit {
 
 
   getUserInfo(id: number){
-    this.userService.getUserInfo(id).subscribe({next:(response:any)=>{
-      console.log('user info',response.data)
-      this.emailId = response.data.emailId;
-      this.firstName = response.data.firstName;
-      this.lastName = response.data.lastName;
-      this.zipCode = response.data.zipCode;
-
-    },error:(error)=>{
-      console.log('users info error',error)
-    }});
+    
   }
 
   updateUser(){
-    if(this.validateUserInfo()){
-    this.userService.updateUser(this.emailId,this.firstName,this.lastName,this.zipCode,this.userId).subscribe({next:(data)=>{
-      console.log('user',data)
-      this.hasError = false;
-      window.alert('User Updated successfully');
-      this.router.navigate(['/users'])
-    },error:(error)=>{
-      this.hasError = true;
-      console.log('update users error',error)
-    }});;
-  }
-  else {
-    this.errorMessage = 'Please enter all the details'
-      this.hasError = true;
-  }
+ 
   }
 
   validateUserInfo():boolean{

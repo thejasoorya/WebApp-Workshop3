@@ -30,10 +30,7 @@ export class UsersComponent implements OnInit {
 
   deleteUser(id:number){
     
-    if(window.confirm("Are you sure you want to delete ?"))
-    this.userService.deleteUser(id).subscribe(data =>{
-        this.getUsers();
-    });
+   
     
   }
 
