@@ -1,0 +1,29 @@
+<div class="container mt-50 add-new-emp">
+    <div class="fnt-b table-head">
+      <h5>Add New User</h5>
+    </div>
+    <div class="row g-3 mt-10">
+        <div class="col-md-6">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" [(ngModel)]="emailId">
+      </div>
+      <div class="col-md-6">
+        <label for="inputAddress" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="First Name" [(ngModel)]="firstName">
+      </div>
+      <div class="col-md-6">
+        <label for="inputAddress2" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Last Name" [(ngModel)]="lastName">
+      </div>
+      <div class="col-md-6">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="inputZip" placeholder="ZipCode" [(ngModel)]="zipCode">
+      </div>
+      <div *ngIf="hasError" class="error-container">
+            <span>{{errorMessage}}</span>
+      </div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-secondary add" (click)="addUser()">Add</button>
+      </div>
+      </div>
+  </div>
