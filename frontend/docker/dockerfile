@@ -1,0 +1,19 @@
+FROM node:16.17.0-alpine3.16 As development
+
+RUN apk add curl \
+    && curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin \
+    && trivy filesystem --exit-code 1 --no-progress /
+
+WORKDIR /home/WORKSHOP/WebApp-Workshop2/frontend
+
+COPY frontend/frontend/*.json ./
+
+RUN npm install
+
+COPY frontend/frontend .
+
+RUN npm run build
+
+FROM node:16.15.0-alpine3.15 As production
+
+CMD ["node", "dist/main"]
