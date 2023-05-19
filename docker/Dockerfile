@@ -1,18 +1,13 @@
-FROM node:16.16.0-alpine3.15
+FROM node:18.16.0-alpine3.17 As development
 
-LABEL maintainer="UniCourt" \
-    git-repo="git@github.com:UniCourt/WebApp-Workshop2.git" \
-    email="noelneethanr@unicourt.com"
+RUN npm install -g @angular/cli@15.0.1
 
-RUN mkdir -p app
-WORKDIR /app
+WORKDIR /home/uca_user/user-app
 
-# Update apk package & npm
-RUN apk update --no-cache && npm update && \
-    npm i -g @nestjs/cli
+COPY ./user-app/*.json ./
 
-COPY ./app/package.json .
-RUN npm install
-COPY ./app .
+RUN npm install 
 
-EXPOSE 3000 5555
+COPY . .
+
+
