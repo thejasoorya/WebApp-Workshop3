@@ -7,30 +7,7 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { AuthGuard } from './guards/auth.guard';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: UserListComponent,
-  },
-  {
-    path: 'about-us',
-    component: AboutUsComponent,
-  },
-  {
-    path: 'contact',
-    component: ContactComponent,
-  },
-  {
-    path: 'user-detail',
-    component: UserDetailComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'create-user',
-    component: CreateUserComponent,
-    canActivate: [AuthGuard],
-  },
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
