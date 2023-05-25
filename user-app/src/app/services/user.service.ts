@@ -12,8 +12,7 @@ export class UserService {
   constructor() {}
 
   userAleadyAdded(): boolean {
-    this.users = JSON.parse(localStorage.getItem('users')) || [];
-    return this.users.length == 0 ? false : true;
+    return true;
   }
 
   getUsers(): void {}

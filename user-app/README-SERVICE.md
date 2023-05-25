@@ -7,8 +7,14 @@
    ```
      ng generate service services/user
    ```
-
-2. Getting _user list_
+2. Checking already user added or not 
+    ```
+      userAleadyAdded(): boolean {
+        this.users = JSON.parse(localStorage.getItem('users')) || [];
+        return this.users.length == 0 ? false : true;
+      }
+    ```
+3. Getting _user list_
 
    ```
     getUsers(): void {
@@ -36,7 +42,7 @@
     }
    ```
 
-3. Getting _user detail_
+4. Getting _user detail_
 
    ```
       getUserDetail(id: number): Observable<any> {
@@ -44,7 +50,7 @@
       }
    ```
 
-4. adding _user detail_
+5. adding _user detail_
 
    ```
     addUser(user: UserDetail): void {
@@ -67,7 +73,7 @@
     }
    ```
 
-5. deleting _user detail_
+6. deleting _user detail_
 
    ```
     deleteUser(id: number): void {

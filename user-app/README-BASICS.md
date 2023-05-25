@@ -1,5 +1,12 @@
 # Angular - Workshop 3
 
+## Git 
+```
+ git pull upstream main
+ git push origin main
+ git checkout -b exercise
+```
+
 ## Command Line Tools
 
 1.  Creating angular project
