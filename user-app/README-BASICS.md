@@ -157,6 +157,23 @@
    ```
      ng generate component header
    ```
+  - header-component.html
+    ```
+    <div class="header">
+      <img
+        routerLink=""
+        src="../../../assets/unicourt-logo.png"
+        alt="logo"
+        height="54"
+      />
+      <div class="menu">
+        <label routerLink="/">Home</label>
+        <label routerLink="/about-us">About Us</label>
+        <label routerLink="/contact">Contact</label>
+      </div>
+    </div>
+
+    ```
 
 2. Use _header_ and _router-outlet_ in app.component.html
 

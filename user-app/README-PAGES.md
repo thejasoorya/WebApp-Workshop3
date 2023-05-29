@@ -90,7 +90,52 @@
 
   ```
 
-2. user-card
+2. user-list
+
+- user-list.component.ts
+
+  ```
+  constructor(public userService: UserService) {}
+
+  ngOnInit() {
+    if(!this.userService.userAleadyAdded())
+    {
+
+      this.userService.getUsers();
+    }
+  }
+
+  deleteUser(event) {
+    this.userService.deleteUser(event)
+  }
+
+
+  ```
+
+- user-list.component.html
+
+  ```
+  <div class="container">
+    <div class="header">
+      <h2>User List</h2>
+      <button routerLink="create-user">Create User</button>
+    </div>
+
+    <div class="user-card-container">
+      <app-user-card
+        *ngFor="let user of userService.users"
+        [id]="user.id"
+        [name]="user.name"
+        [city]="user.city"
+        [emailId]="user.emailId"
+        (deleteUser)="deleteUser($event)"
+      ></app-user-card>
+    </div>
+  </div>
+
+  ```
+
+3. user-card
 
 - user-card.component.ts
 
@@ -130,7 +175,7 @@
 
   ```
 
-3. user-detail
+4. user-detail
 
 - user-detail.component.ts
 
@@ -200,47 +245,4 @@
 
   ```
 
-4. user-list
 
-- user-list.component.ts
-
-  ```
-  constructor(public userService: UserService) {}
-
-  ngOnInit() {
-    if(!this.userService.userAleadyAdded())
-    {
-
-      this.userService.getUsers();
-    }
-  }
-
-  deleteUser(event) {
-    this.userService.deleteUser(event)
-  }
-
-
-  ```
-
-- user-list.component.html
-
-  ```
-  <div class="container">
-    <div class="header">
-      <h2>User List</h2>
-      <button routerLink="create-user">Create User</button>
-    </div>
-
-    <div class="user-card-container">
-      <app-user-card
-        *ngFor="let user of userService.users"
-        [id]="user.id"
-        [name]="user.name"
-        [city]="user.city"
-        [emailId]="user.emailId"
-        (deleteUser)="deleteUser($event)"
-      ></app-user-card>
-    </div>
-  </div>
-
-  ```
